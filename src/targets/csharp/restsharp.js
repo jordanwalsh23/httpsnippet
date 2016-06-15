@@ -10,6 +10,7 @@ module.exports = function (source, options) {
     return 'Method not supported'
   } else {
     code.push('var client = new RestClient("%s");', source.fullUrl)
+    code.push('client.ClearHandlers();')
     code.push('var request = new RestRequest(Method.%s);', source.method.toUpperCase())
   }
 
